@@ -7,7 +7,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import Icon from '@/components/ui/icon';
 
 const Index = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
@@ -75,22 +74,22 @@ const Index = () => {
 
   const services = [
     {
-      icon: "Wrench",
+      icon: "🔧",
       title: "Установка памятников",
       description: "Профессиональная установка с гарантией качества"
     },
     {
-      icon: "Leaf", 
+      icon: "🌿", 
       title: "Благоустройство могил",
       description: "Полное благоустройство участков с озеленением"
     },
     {
-      icon: "Palette",
+      icon: "🎨",
       title: "Гравировка портретов",
       description: "Художественная гравировка и портреты на памятниках"
     },
     {
-      icon: "Truck",
+      icon: "🚚",
       title: "Доставка",
       description: "Бесплатная доставка по городу при заказе от 30 000 ₽"
     }
@@ -104,7 +103,6 @@ const Index = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Логика отправки формы
     console.log('Форма отправлена');
     setIsFormOpen(false);
   };
@@ -116,7 +114,7 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <Icon name="Cross" size={24} className="text-primary" />
+              <span className="text-2xl">⛪</span>
               <h1 className="text-xl font-roboto font-bold text-primary">Мемориал Монументы</h1>
             </div>
             <nav className="hidden md:flex items-center space-x-6">
@@ -128,8 +126,7 @@ const Index = () => {
             <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
               <DialogTrigger asChild>
                 <Button className="font-medium">
-                  <Icon name="Phone" size={16} className="mr-2" />
-                  Заказать звонок
+                  📞 Заказать звонок
                 </Button>
               </DialogTrigger>
             </Dialog>
@@ -152,14 +149,12 @@ const Index = () => {
               <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
                 <DialogTrigger asChild>
                   <Button size="lg" className="text-base font-medium">
-                    <Icon name="MessageSquare" size={18} className="mr-2" />
-                    Оставить заявку
+                    💬 Оставить заявку
                   </Button>
                 </DialogTrigger>
               </Dialog>
               <Button variant="outline" size="lg" className="text-base font-medium">
-                <Icon name="Catalog" size={18} className="mr-2" />
-                Посмотреть каталог
+                📋 Посмотреть каталог
               </Button>
             </div>
           </div>
@@ -208,8 +203,7 @@ const Index = () => {
                         <span>Размер: {monument.size}</span>
                       </div>
                       <Button className="w-full font-medium">
-                        <Icon name="ShoppingCart" size={16} className="mr-2" />
-                        Заказать
+                        🛒 Заказать
                       </Button>
                     </CardContent>
                   </Card>
@@ -243,8 +237,7 @@ const Index = () => {
                         <span>Высота: {fence.height}</span>
                       </div>
                       <Button className="w-full font-medium">
-                        <Icon name="ShoppingCart" size={16} className="mr-2" />
-                        Заказать
+                        🛒 Заказать
                       </Button>
                     </CardContent>
                   </Card>
@@ -269,8 +262,8 @@ const Index = () => {
             {services.map((service, index) => (
               <Card key={index} className="text-center hover:shadow-md transition-shadow animate-fade-in">
                 <CardHeader>
-                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4">
-                    <Icon name={service.icon as any} size={24} className="text-primary" />
+                  <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-4 text-2xl">
+                    {service.icon}
                   </div>
                   <CardTitle className="text-lg font-roboto">{service.title}</CardTitle>
                 </CardHeader>
@@ -299,8 +292,8 @@ const Index = () => {
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon name="MapPin" size={20} className="text-primary" />
+                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 text-xl">
+                    📍
                   </div>
                   <div>
                     <h4 className="font-roboto font-medium mb-1">Адрес</h4>
@@ -312,8 +305,8 @@ const Index = () => {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon name="Phone" size={20} className="text-primary" />
+                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 text-xl">
+                    📞
                   </div>
                   <div>
                     <h4 className="font-roboto font-medium mb-1">Телефон</h4>
@@ -325,8 +318,8 @@ const Index = () => {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon name="Mail" size={20} className="text-primary" />
+                  <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0 text-xl">
+                    ✉️
                   </div>
                   <div>
                     <h4 className="font-roboto font-medium mb-1">Email</h4>
@@ -349,8 +342,7 @@ const Index = () => {
                     <Input id="quick-phone" placeholder="+7 (___) ___-__-__" className="mt-1" />
                   </div>
                   <Button className="w-full font-medium">
-                    <Icon name="Send" size={16} className="mr-2" />
-                    Отправить заявку
+                    📨 Отправить заявку
                   </Button>
                 </form>
               </div>
@@ -413,7 +405,7 @@ const Index = () => {
               />
               <Label htmlFor="photo" className="cursor-pointer">
                 <div className="flex flex-col items-center space-y-2">
-                  <Icon name="Upload" size={24} className="text-muted-foreground" />
+                  <span className="text-2xl">📁</span>
                   <span className="text-sm text-muted-foreground">
                     {selectedFile ? selectedFile.name : 'Нажмите для выбора файла'}
                   </span>
@@ -424,8 +416,7 @@ const Index = () => {
           
           <div className="flex gap-3 pt-4">
             <Button type="submit" className="flex-1 font-medium">
-              <Icon name="Send" size={16} className="mr-2" />
-              Отправить заявку
+              📨 Отправить заявку
             </Button>
             <Button type="button" variant="outline" onClick={() => setIsFormOpen(false)}>
               Отмена
@@ -440,7 +431,7 @@ const Index = () => {
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <Icon name="Cross" size={20} />
+                <span className="text-xl">⛪</span>
                 <span className="font-roboto font-bold">Мемориал Монументы</span>
               </div>
               <p className="text-sm opacity-90">
